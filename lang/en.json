@@ -1,0 +1,14 @@
+{
+  "m_game": "Play",
+  "m_editor": "Editor",
+  "m_stgs": "Settings",
+  "m_wiki": "Wiki",
+  "m_news": "News",
+  "m_about": "About",
+  "m_lang": "Language",
+
+  "allRgRvd": "All rights reserved",
+
+  "message": "hello i18n !!",
+  "hello": "Hello {0} in SFC!"
+}

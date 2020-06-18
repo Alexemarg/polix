@@ -1,0 +1,166 @@
+{
+
+  "Events": {
+    "Program": {
+      "[not event]": {}
+    },
+    "Game": {
+      "Initialized": {
+        "Map id": { "type": "number" }
+      },
+      "Ended": {
+        "Is defeat": { "type": "boolean" }
+      }
+    },
+    "Entity": {
+      "Spawned": { "$": ["Self"] },
+      "Died": { "$": ["Self"] },
+      "Touched entity": {
+        "$": ["Self", "Target"],
+        "Target entity type": { "type": "number", "_link": "d.e:n", "_tarIx": true },
+        "Side": { "_list": ["None", "Up", "Right", "Down", "Left"], "_tarIx": true, "_isNegat": true}
+      },
+      "Touched block": {
+        "$": ["Self", "TargetBlock"],
+        "Block": { "type": "number", "_link": "d.b:n", "_tarIx": true },
+        "Side": { "_list": ["None", "Up", "Right", "Down", "Left"], "_tarIx": true, "_isNegat": true}
+      },
+      "In the region": {
+        "$": ["Self"],
+        "X 1": { "type": "number" },
+        "Y 1": { "type": "number" },
+        "X 2": { "type": "number" },
+        "Y 2": { "type": "number" }
+      },
+      "Jump": { "$": ["Self"] }
+    },
+    "Camera": {},
+    "Block": {}
+  },
+
+
+  "Actions": {
+    "Program": {
+      "Wait": {
+        "Milliseconds": { "type": "number" }
+      }
+    },
+    "Game": {
+      "End game": {
+        "Is defeat": { "type": "boolean" }
+      }
+    },
+    "Entity": {
+      "Spawn": {
+        "Entity type": { "type": "number", "_link": "d.e:n", "_tarIx": true },
+        "Position by X": { "type": "number" },
+        "Position by Y": { "type": "number" },
+        "Save to var": { "_var": true, "_opt": true }
+      },
+      "Kill": {
+        "Entity": { "_var": true }
+      },
+      "Set control": {
+        "Entity": { "_var": true }
+      },
+      "Add checking touch block": {
+        "Entity": { "_var": true },
+        "Block": { "type": "number", "_link": "d.b:n", "_tarIx": true }
+      },
+      "Add checking touch entity": {
+        "Entity": { "_var": true },
+        "With entity type": { "type": "number", "_link": "d.e:n", "_tarIx": true }
+      },
+      "Jump": {
+        "Entity": { "_var": true },
+        "Is strict": { "type": "boolean" }
+      },
+      "Set moving": {
+        "Entity": { "_var": true },
+        "By X": { "type": "number", "min": -1, "max": 1 },
+        "By Y": { "type": "number", "min": -1, "max": 1 }
+      },
+      "Set invert moving": {
+        "Entity": { "_var": true },
+        "Is by X": { "type": "boolean" }
+      },
+      "Move": {
+        "Entity": { "_var": true },
+        "By X": { "type": "number" },
+        "By Y": { "type": "number" },
+        "Is impulse": { "type": "boolean" }
+      }
+    },
+    "Camera": {
+      "Follow entity": {
+        "Entity": { "_var": true }
+      },
+      "Set zoom": {
+        "Value": { "type": "number" }
+      },
+      "Set lerp": {
+        "X": { "type": "number" },
+        "Y": { "type": "number" }
+      }
+    },
+    "Block": {
+      "Remove": {
+        "Block": { "_var": true }
+      },
+      "Replace": {
+        "To position of block": { "_var": true },
+        "New block type": { "type": "number", "_link": "d.b:n", "_tarIx": true }
+      }
+    },
+    "Audio": {
+      "Play sound": {
+        "Sound": { "type": "number", "_link": "a.e:n", "_tarIx": true }
+      },
+      "Play music": {
+        "Sound": { "type": "number", "_link": "a.m:n", "_tarIx": true }
+      },
+      "Stop sound": {
+        "Sound": { "type": "number", "_link": "a.e:n", "_tarIx": true }
+      },
+      "Stop music": {
+        "Sound": { "type": "number", "_link": "a.m:n", "_tarIx": true }
+      }
+    },
+    "Animation": {
+      "Play": {
+        "Entity": { "_var": true },
+        "Animation": { "type": "string", "_link": "n:n?_c=e", "_tarIx": true }
+      },
+      "Set flippable for entity": {
+        "Entity": { "_var": true },
+        "By X": { "type": "boolean" },
+        "By Y": { "type": "boolean" }
+      },
+      "Shake camera": {
+        "Duration": { "type": "number" },
+        "Intensity": { "type": "number" }
+      },
+      "Camera fade out": {
+        "Duration": { "type": "number" },
+        "Color": { "type": "string", "pattern": "^[\\dA-Fa-f]{6}$", "example": "00AAFF"}
+      },
+      "Set background image": {
+        "Img id": { "type": "number" },
+        "Rect points": { "type": "array", "items": {"type": "number"}, "minItems": 4, "maxItems": 4 }
+      }
+    },
+    "Event": {},
+    "Control": {
+      "Set enable status": {
+        "Is enabled": { "type": "boolean" }
+      }
+    }
+
+
+
+
+
+
+  }
+
+}
